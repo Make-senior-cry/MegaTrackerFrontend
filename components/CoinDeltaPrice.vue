@@ -1,11 +1,14 @@
 <template>
   <div
     class="bord"
-    :class="{green: isIncreased}">
+    :class="{greenBackground: isIncreased}">
     {{ deltaPrice }}
   </div>
 </template>
-
+<!--
+TODO: Изменить размеры(сделать адаптивными), отцентрировать текст по вертикали, добавить логику добавления "+" или "-"
+TODO: Подобрать шрифт для текста
+-->
 <script>
 export default {
   name: "CoinDeltaPrice",
@@ -21,10 +24,7 @@ export default {
   },
 }
 </script>
-<!--
-TODO: Изменить размеры(сделать адаптивными), отцентрировать текст по вертикали, добавить логику добавления "+" или "-"
-TODO: Подобрать шрифт для текста
--->
+
 <style scoped>
 .bord {
   font-family: 'Inter';
@@ -37,9 +37,8 @@ TODO: Подобрать шрифт для текста
   width: 54px;
   height: 25px;
   background: #FE6868;
-
 }
-.green {
+.greenBackground {
   background: #9EF8C2;
   width: 56px;
 }
