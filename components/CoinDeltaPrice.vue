@@ -1,45 +1,51 @@
 <template>
   <div
-    class="bord"
-    :class="{greenBackground: isIncreased}">
-    {{ deltaPrice }}
+    class="container"
+    :class="{container_increased: isIncreased, container_large: large}">
+    {{ price }}
   </div>
 </template>
-<!--
-TODO: Изменить размеры(сделать адаптивными), отцентрировать текст по вертикали, добавить логику добавления "+" или "-"
-TODO: Подобрать шрифт для текста
--->
+
 <script>
 export default {
-  name: "CoinDeltaPrice",
   props: {
     deltaPrice: {
       type: Number,
       required: true,
     },
-    isIncreased: {
+    large: {
       type: Boolean,
-      required: true,
-    },
+      default: false,
+    }
   },
+  computed: {
+    isIncreased() {
+      return this.deltaPrice > 0;
+    },
+    price() {
+      return `${this.isIncreased ? '+': '-'} ${Math.abs(this.deltaPrice)}`;
+    }
+  }
 }
 </script>
 
 <style scoped>
-.bord {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  border-radius: 8px;
+.container {
+  font-size: 0.875rem;
+  line-height: 1.2;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
   text-align: center;
-  width: 54px;
-  height: 25px;
-  background: #FE6868;
+  background-color: var(--red-background);
+  display: flex;
+  align-items: center;
 }
-.greenBackground {
-  background: #9EF8C2;
-  width: 56px;
+
+.container_large {
+  font-size: 1.25rem;
+}
+
+.container_increased {
+  background-color: var(--green-background);
 }
 </style>
