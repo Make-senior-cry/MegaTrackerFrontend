@@ -5,17 +5,48 @@
       <CoinDeltaPrice delta-price="-45500" large />
     </div>
     <div class="showcase">
-      <ActionButton><TextContent value="Hello fuckers!"/></ActionButton>
+      <ActionButton><TextContent value="Hello fuckers!" /></ActionButton>
     </div>
     <div class="showcase">
-      <PrimaryButton><TextContent value="Primary button"/></PrimaryButton>
+      <PrimaryButton><TextContent value="Primary button" /></PrimaryButton>
+    </div>
+    <div class="showcase">
+      <TextInput v-model="inputValue" placeholder="Text input" />
     </div>
     <div>
-      <CoinListItem :coin="{ ticker: 'BTC', name: 'Bitcoin', currentPrice: 49500, deltaPrice: 480, iconURL: '' }"/>
+      <CoinListItem
+        :coin="{
+          ticker: 'BTC',
+          name: 'Bitcoin',
+          currentPrice: 49500,
+          deltaPrice: 480,
+          iconURL: '',
+        }"
+      />
     </div>
     <div>
-      <coin-list :coins="[{ticker: 'BTC', name: 'Bitcoin', currentPrice: 49500, deltaPrice: 480, iconURL: ''},
-      {ticker: 'ETH', name: 'Etherium', currentPrice: 20000, deltaPrice: -200, iconURL: ''}]"/>
+      <coin-list
+        :coins="[
+          {
+            ticker: 'BTC',
+            name: 'Bitcoin',
+            currentPrice: 49500,
+            deltaPrice: 480,
+            iconURL: '',
+          },
+          {
+            ticker: 'ETH',
+            name: 'Etherium',
+            currentPrice: 20000,
+            deltaPrice: -200,
+            iconURL: '',
+          },
+        ]"
+        :show-favourite="true"
+      />
+    </div>
+    <div class="showcase">
+      <CoinHeader name="Bitcoin" ticker="btc" :is-favourite="false" />
     </div>
   </main>
 </template>
@@ -23,21 +54,35 @@
 <script>
 import CoinDeltaPrice from '~/components/CoinDeltaPrice.vue'
 import ActionButton from '~/components/ActionButton.vue'
-import TextContent from '~/components/TextContent.vue';
-import PrimaryButton from '~/components/PrimaryButton.vue';
-import CoinListItem from "~/components/CoinListItem";
-import CoinList from "~/components/CoinList";
+import TextContent from '~/components/TextContent.vue'
+import PrimaryButton from '~/components/PrimaryButton.vue'
+import CoinListItem from '~/components/CoinListItem'
+import CoinList from '~/components/CoinList'
+import CoinHeader from '~/components/CoinHeader.vue'
+import TextInput from '~/components/TextInput.vue'
 
 export default {
   name: 'IndexPage',
-  components: {CoinList, CoinListItem, CoinDeltaPrice, ActionButton, TextContent, PrimaryButton },
+  components: {
+    CoinDeltaPrice,
+    ActionButton,
+    TextContent,
+    PrimaryButton,
+    CoinListItem,
+    CoinList,
+    CoinHeader,
+    TextInput,
+  },
+  data: () => ({
+    inputValue: '',
+  }),
 }
 </script>
 
 <style scoped>
-  .showcase {
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
+.showcase {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
 </style>

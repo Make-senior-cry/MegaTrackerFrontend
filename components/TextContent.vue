@@ -2,6 +2,7 @@
 const textType = {
   H1: 'H1',
   H2: 'H2',
+  H3: 'H3',
   BODY: 'BODY',
 }
 
@@ -9,6 +10,7 @@ const tagMap = {
   [textType.BODY]: 'span',
   [textType.H2]: 'h2',
   [textType.H1]: 'h1',
+  [textType.H3]: 'h3',
 }
 
 export default {
@@ -46,6 +48,11 @@ export default {
 .H2 {
   font-weight: 700;
   font-size: 1.25rem;
+}
+
+.H3 {
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .BODY {
