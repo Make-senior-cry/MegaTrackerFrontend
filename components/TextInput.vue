@@ -50,6 +50,6 @@ export default {
 }
 
 .input::placeholder {
-  color: #666666;
+  color: var(--gray);
 }
 </style>
