@@ -1,7 +1,8 @@
 <template>
   <div
     class="container"
-    :class="{container_increased: isIncreased, container_large: large}">
+    :class="{ container_increased: isIncreased, container_large: large }"
+  >
     {{ price }}
   </div>
 </template>
@@ -16,21 +17,22 @@ export default {
     large: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   computed: {
     isIncreased() {
-      return this.deltaPrice > 0;
+      return this.deltaPrice > 0
     },
     price() {
-      return `${this.isIncreased ? '+': '-'} ${Math.abs(this.deltaPrice)}`;
-    }
-  }
+      return `${this.isIncreased ? '+' : '-'} ${Math.abs(this.deltaPrice)}`
+    },
+  },
 }
 </script>
 
 <style scoped>
 .container {
+  color: var(--black-stroke);
   font-size: 0.875rem;
   line-height: 1.2;
   border-radius: 0.5rem;
