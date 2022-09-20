@@ -1,21 +1,24 @@
 <template>
   <div class="itemContainer" >
-    <img :src="coin.iconURL">
-    <div class="coinName">
-      <div>{{ coin.ticker }}</div>
-      <div style="font-size: 0.875rem; color: #666666">
-        {{ coin.name }}
+    <img :src="coin.iconURL" alt="loading...">
+      <div class="coinMainInfoContainer">
+        <div class="coinName">
+          <div>{{ coin.ticker }}</div>
+          <div style="font-size: 0.875rem; color: #666666">
+            {{ coin.name }}
+          </div>
+        </div>
+        <div>
+          <span>{{ coin.currentPrice }}</span>
+          <CoinDeltaPrice :delta-price="coin.deltaPrice"/>
+        </div>
       </div>
-    </div>
-    <div>
-      <span>{{ coin.currentPrice }}</span>
-      <CoinDeltaPrice :delta-price="coin.deltaPrice" :large="false"/>
-    </div>
   </div>
 </template>
-
+<!--TODO: добавить render картинки favourite -->
 <script>
 import CoinDeltaPrice from "~/components/CoinDeltaPrice";
+
 export default {
   name: "CoinListItem",
   components: {CoinDeltaPrice},
@@ -34,22 +37,24 @@ export default {
       required: false,
       default: false
     }
-  }
+  },
 }
 </script>
-<!-- TODO: Не уверен насчёт маржинов в классе coinName, если назвать класс container,
-TODO: то почему то в CoinDeltaPrice у класса Container переопределяется padding-->
 <style scoped>
 .itemContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   padding: 0.5rem 1rem;
   border: 1px solid black; /* для теста */
 }
+.coinMainInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
 .coinName {
-  padding: 0;
-  margin-left: 1rem;
-  margin-right: 10.5rem;
+  padding: 0.25rem 0;
 }
 </style>
