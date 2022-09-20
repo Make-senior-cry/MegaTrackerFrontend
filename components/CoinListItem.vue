@@ -9,7 +9,7 @@
           </div>
         </div>
         <div>
-          <span>{{ coin.currentPrice }}</span>
+          <div style="text-align: center">{{ coin.currentPrice }}</div>
           <CoinDeltaPrice :delta-price="coin.deltaPrice"/>
         </div>
       </div>
@@ -46,7 +46,6 @@ export default {
   flex-direction: row;
   align-items: start;
   padding: 0.5rem 1rem;
-  border: 1px solid black; /* для теста */
 }
 .coinMainInfoContainer {
   display: flex;
