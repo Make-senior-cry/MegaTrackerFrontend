@@ -28,19 +28,18 @@ export default {
 }
 </script>
 
-
 <style scoped>
-  .H1 {
-    font-size: 2rem;
-  }
+.H1 {
+  font-size: 2rem;
+}
 
-  .H2 {
-    font-weight: 700;
-    font-size: 1.25rem;
-  }
+.H2 {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
 
-  .BODY {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
+.BODY {
+  font-size: 1rem;
+  line-height: 1.5;
+}
 </style>
