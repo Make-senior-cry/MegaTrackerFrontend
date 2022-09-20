@@ -23,17 +23,13 @@ export default {
     },
   },
   render(h) {
-    return h(tagMap[this.variant], { class: [this.variant, 'text'].join(' ') }, this.value)
+    return h(tagMap[this.variant], { class: this.variant }, this.value)
   },
 }
 </script>
 
 
 <style scoped>
-  .text {
-    color: var(--black-stroke);
-  }
-
   .H1 {
     font-size: 2rem;
   }
