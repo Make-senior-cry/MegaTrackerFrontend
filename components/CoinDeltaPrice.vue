@@ -3,12 +3,14 @@
     class="container"
     :class="{ container_increased: isIncreased, container_large: large }"
   >
-    {{ price }}
+    <TextContent :value="price" />
   </div>
 </template>
 
 <script>
+import TextContent from './TextContent.vue'
 export default {
+  components: { TextContent },
   props: {
     deltaPrice: {
       type: Number,
