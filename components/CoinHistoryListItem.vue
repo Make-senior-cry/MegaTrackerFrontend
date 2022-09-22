@@ -1,7 +1,7 @@
 <template>
   <div class="coinContainer">
     <div class="date">
-      <TextContent :value="coinPriceItem.date"/>
+      <TextContent :value="coinPriceItem.date" />
     </div>
     <div class="priceInfo">
       <TextContent :value="coinPriceItem.currentPrice" variant="H3" />
@@ -11,16 +11,16 @@
 </template>
 
 <script>
-import TextContent from "~/components/TextContent";
-import CoinDeltaPrice from "~/components/CoinDeltaPrice";
+import TextContent from '~/components/TextContent'
+import CoinDeltaPrice from '~/components/CoinDeltaPrice'
 export default {
-  components: {TextContent, CoinDeltaPrice},
+  components: { TextContent, CoinDeltaPrice },
   props: {
     coinPriceItem: {
       type: Object,
       required: true,
-    }
-  }
+    },
+  },
 }
 </script>
 
