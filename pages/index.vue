@@ -48,6 +48,15 @@
     <div class="showcase">
       <CoinHeader name="Bitcoin" ticker="btc" :is-favourite="false" />
     </div>
+    <div class="showcase">
+      <CoinHistoryItem
+        :coin-price-item="{
+          date: '22.09.2022',
+          currentPrice: 58000,
+          deltaPrice: 480,
+        }"
+      />
+    </div>
   </main>
 </template>
 
@@ -60,10 +69,12 @@ import CoinListItem from '~/components/CoinListItem'
 import CoinList from '~/components/CoinList'
 import CoinHeader from '~/components/CoinHeader.vue'
 import TextInput from '~/components/TextInput.vue'
+import CoinHistoryItem from '~/components/CoinHistoryItem'
 
 export default {
   name: 'IndexPage',
   components: {
+    CoinHistoryItem,
     CoinDeltaPrice,
     ActionButton,
     TextContent,
