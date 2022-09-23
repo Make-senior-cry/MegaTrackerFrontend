@@ -1,6 +1,6 @@
 <template>
   <div class="coinInfoContainer">
-    <TextContent :value="title"/>
+    <TextContent :value="title" />
     <div class="deltaPrice">
       <slot></slot>
     </div>
@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import TextContent from "~/components/TextContent";
+import TextContent from '~/components/TextContent'
 export default {
-  components: {TextContent},
+  components: { TextContent },
   props: {
     title: {
       type: String,
