@@ -57,7 +57,7 @@
         }"
       />
     </div>
-    <div>
+    <div class="showcase">
       <CoinHistoryList
         :coin-price-items="[
           {
@@ -73,6 +73,14 @@
         ]"
       />
     </div>
+    <div class="showcase">
+      <CoinInfoBlock :title="'Текущая цена'">
+        <TextContent value="59000" variant="H3" />
+      </CoinInfoBlock>
+      <CoinInfoBlock :title="'Изменение цены'">
+        <CoinDeltaPrice delta-price="480" />
+      </CoinInfoBlock>
+    </div>
   </main>
 </template>
 
@@ -87,10 +95,12 @@ import CoinHeader from '~/components/CoinHeader.vue'
 import TextInput from '~/components/TextInput.vue'
 import CoinHistoryListItem from '~/components/CoinHistoryListItem'
 import CoinHistoryList from '~/components/CoinHistoryList'
+import CoinInfoBlock from '~/components/CoinInfoBlock'
 
 export default {
   name: 'IndexPage',
   components: {
+    CoinInfoBlock,
     CoinHistoryList,
     CoinHistoryListItem,
     CoinDeltaPrice,
