@@ -7,7 +7,7 @@
       container_large: large,
     }"
   >
-    <TextContent :value="'$ ' + price" />
+    <TextContent :value="price + ' $'" />
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
       return this.deltaPrice > 0
     },
     price() {
-      return `${Math.abs(this.deltaPrice)}`
+      return `${this.isNull ? '' : (this.isIncreased ? '+' : '-')} ${Math.abs(this.deltaPrice)}`
     },
   },
 }
