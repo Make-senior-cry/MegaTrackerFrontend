@@ -1,9 +1,9 @@
 <template>
   <div
     class="container"
-    :class="{ container_increased: isIncreased, container_large: large }"
+    :class="{ container_increased: isIncreased, container_null: isNull, container_large: large }"
   >
-    <TextContent :value="price" />
+    <TextContent :value="'$ ' + price" />
   </div>
 </template>
 
@@ -22,11 +22,16 @@ export default {
     },
   },
   computed: {
+    isNull() {
+      return this.deltaPrice === 0
+    },
     isIncreased() {
       return this.deltaPrice > 0
     },
     price() {
-      return `${this.isIncreased ? '+' : '-'} ${Math.abs(this.deltaPrice)}`
+      return `${Math.abs(
+        this.deltaPrice
+      )}`
     },
   },
 }
@@ -51,5 +56,9 @@ export default {
 
 .container_increased {
   background-color: var(--green-background);
+}
+
+.container_null {
+  background-color: var(--light-gray);
 }
 </style>
