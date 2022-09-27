@@ -1,7 +1,7 @@
 <template>
   <div class="coinContainer">
     <div class="leftSide">
-      <img class="coinIcon" :src="coin.iconURL" :alt="coin.name" />
+      <img class="coinIcon" :src="coin.iconUrl" :alt="coin.name" />
       <div class="info">
         <TextContent :value="coin.ticker" variant="H3" />
         <span class="coinName">
