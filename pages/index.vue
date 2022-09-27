@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="showcase">
-      <CoinDeltaPrice delta-price="400" />
+      <CoinDeltaPrice delta-price="0" />
       <CoinDeltaPrice delta-price="-45500" large />
     </div>
     <div class="showcase">
@@ -81,6 +81,9 @@
         <CoinDeltaPrice delta-price="480" />
       </CoinInfoBlock>
     </div>
+    <div>
+      <coin-list coins="coins" />
+    </div>
   </main>
 </template>
 
@@ -114,7 +117,15 @@ export default {
   },
   data: () => ({
     inputValue: '',
+
+    url: 'http://localhost:8080/coins',
+    coins: [],
   }),
+  mounted() {
+    this.$axios
+      .$get(this.url)
+      .then((response) => ((this.coins = response)))
+  },
 }
 </script>
 
