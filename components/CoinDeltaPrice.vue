@@ -1,7 +1,11 @@
 <template>
   <div
     class="container"
-    :class="{ container_increased: isIncreased, container_null: isNull, container_large: large }"
+    :class="{
+      container_increased: isIncreased,
+      container_null: isNull,
+      container_large: large,
+    }"
   >
     <TextContent :value="'$ ' + price" />
   </div>
@@ -29,9 +33,7 @@ export default {
       return this.deltaPrice > 0
     },
     price() {
-      return `${Math.abs(
-        this.deltaPrice
-      )}`
+      return `${Math.abs(this.deltaPrice)}`
     },
   },
 }
