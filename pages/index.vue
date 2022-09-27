@@ -82,7 +82,7 @@
       </CoinInfoBlock>
     </div>
     <div>
-      <coin-list coins="coins" />
+      <coin-list :coins="coins" />
     </div>
   </main>
 </template>
@@ -122,9 +122,7 @@ export default {
     coins: [],
   }),
   mounted() {
-    this.$axios
-      .$get(this.url)
-      .then((response) => ((this.coins = response)))
+    this.$axios.$get(this.url).then((response) => (this.coins = response))
   },
 }
 </script>
