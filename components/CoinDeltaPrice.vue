@@ -7,10 +7,10 @@
       container_large: large,
     }"
   >
-    <TextContent :value="price + ' $'" />
+    <TextContent :value="price + ' $ (' + deltaPricePercent + ' %)'" />
   </div>
 </template>
-
+<!-- TODO исправить deltaPricePercent required на true-->
 <script>
 import TextContent from './TextContent.vue'
 export default {
@@ -19,6 +19,10 @@ export default {
     deltaPrice: {
       type: Number,
       required: true,
+    },
+    deltaPricePercent: {
+      type: Number,
+      required: false,
     },
     large: {
       type: Boolean,
@@ -33,7 +37,9 @@ export default {
       return this.deltaPrice > 0
     },
     price() {
-      return `${this.isNull ? '' : (this.isIncreased ? '+' : '-')} ${Math.abs(this.deltaPrice)}`
+      return `${this.isNull ? '' : this.isIncreased ? '+' : '-'} ${Math.abs(
+        this.deltaPrice
+      )}`
     },
   },
 }
