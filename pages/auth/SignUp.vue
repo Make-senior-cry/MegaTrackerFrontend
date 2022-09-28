@@ -1,30 +1,30 @@
+<!-- TODO: добавить остальные компоненты-->
+<!-- TODO: настроить стили-->
+<!-- TODO: сделать обработку error и уведомление об успешой/неуспешной регистрации-->
 <template>
   <div class="main">
     <TextContent value="MegaTracker / Создать аккаунт" variant="H1" />
     <div class="body">
       <TextInput
         v-model="newAccount.email"
-        placeholder="email"
+        placeholder="Email"
         type="email"
       ></TextInput>
       <TextInput
         v-model="newAccount.password"
-        placeholder="password"
+        placeholder="Password"
         type="password"
       ></TextInput>
       <TextInput
         v-model="newAccount.repeatedPassword"
-        placeholder="repeatedPassword"
+        placeholder="Repeat password"
         type="password"
       ></TextInput>
     </div>
     <div class="footer">
-      <PrimaryButton @click="register">
+      <PrimaryButton @clicked="register">
         <TextContent value="Зарегистрироваться" />
       </PrimaryButton>
-      <button @click="register">
-        <TextContent value="Зарегистрироваться" />
-      </button>
     </div>
   </div>
 </template>
@@ -46,11 +46,9 @@ export default {
   }),
   methods: {
     register() {
-      console.log('fsdafsasdgs')
-      console.log(this.newAccount.email)
       this.$axios
         .$post(this.signUpUrl, this.newAccount)
-        .then((response) => console.log(response))
+        .then((response) => this.$router.push('/auth/SignIn'))
         .catch((error) => console.log(error))
     },
   },
