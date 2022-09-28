@@ -1,6 +1,16 @@
 <template>
-  <button role="button" class="button"><slot></slot></button>
+  <button role="button" class="button" @click="clicked"><slot></slot></button>
 </template>
+
+<script>
+export default {
+  methods: {
+    clicked() {
+      this.$emit('clicked')
+    },
+  },
+}
+</script>
 
 <style scoped>
 .button {
