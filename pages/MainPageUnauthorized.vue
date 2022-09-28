@@ -1,3 +1,6 @@
+<!-- TODO: добавить остальные компоненты-->
+<!-- TODO: настроить стили-->
+<!-- TODO: сделать обработку error-->
 <template>
   <div class="main">
     <TextContent value="MegaTracker" variant="H1" />
@@ -10,7 +13,7 @@
         </PrimaryButton>
       </div>
       <div class="headerRightSide">
-        <NuxtLink to="/auth/SignUp">
+        <NuxtLink to="/auth/SignIn">
           <ActionButton>
             <TextContent
               value="Войдите в аккаунт, чтобы добавлять валюты в избранное"
@@ -47,7 +50,8 @@ export default {
     coins: [],
   }),
   mounted() {
-    this.$axios.$get(this.url).then((response) => (this.coins = response))
+    this.$axios.$get(this.url)
+      .then((response) => (this.coins = response))
   },
 }
 </script>
@@ -71,6 +75,6 @@ export default {
 }
 
 .headerRightSide {
-  height: 100%;
+
 }
 </style>
