@@ -5,7 +5,10 @@
       <TextInput v-model="password" placeholder="Пароль" />
     </fieldset>
     <PrimaryButton>Продолжить <ArrowRight :size="24" /></PrimaryButton>
-    <ActionButton><AccountPlusOutline/>У меня пока нет аккаунта, создать новый</ActionButton>
+    <ActionButton
+      ><AccountPlusOutline />У меня пока нет аккаунта, создать
+      новый</ActionButton
+    >
   </DefaultLayout>
 </template>
 
@@ -24,7 +27,7 @@ export default {
     ActionButton,
     ArrowRight,
     DefaultLayout,
-    AccountPlusOutline
+    AccountPlusOutline,
   },
   data: () => ({
     email: '',
