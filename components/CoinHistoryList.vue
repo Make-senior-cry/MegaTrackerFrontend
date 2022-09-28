@@ -3,7 +3,7 @@
     <coin-history-list-item
       v-for="coinPriceItem of coinPriceItems"
       :key="coinPriceItem.date"
-      :coinPriceItem="coinPriceItem"
+      :coin-price-item="coinPriceItem"
     />
   </ul>
 </template>

@@ -33,7 +33,9 @@ export default {
       return this.deltaPrice > 0
     },
     price() {
-      return `${this.isNull ? '' : (this.isIncreased ? '+' : '-')} ${Math.abs(this.deltaPrice)}`
+      return `${this.isNull ? '' : this.isIncreased ? '+' : '-'} ${Math.abs(
+        this.deltaPrice
+      )}`
     },
   },
 }

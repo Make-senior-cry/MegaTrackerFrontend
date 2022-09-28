@@ -11,8 +11,10 @@
   background-color: var(--green-background);
   border: 1px solid var(--black-stroke);
   display: flex;
+  text-align: left;
   gap: 1rem;
   transition: opacity 0.1s;
+  font-size: 1rem;
 }
 
 .button:active {
