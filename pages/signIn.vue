@@ -1,14 +1,14 @@
 <template>
   <DefaultLayout>
-    <fieldset class="fieldset">
+    <fieldset class="fieldset group">
       <TextInput v-model="email" placeholder="Email" />
       <TextInput v-model="password" placeholder="Пароль" />
     </fieldset>
     <PrimaryButton>Продолжить <ArrowRight /></PrimaryButton>
-    <ActionButton
-      ><AccountPlusOutline />У меня пока нет аккаунта, создать
-      новый</ActionButton
-    >
+    <ActionButton>
+      <AccountPlusOutline />
+      У меня пока нет аккаунта, создать новый
+    </ActionButton>
   </DefaultLayout>
 </template>
 
@@ -40,12 +40,5 @@ export default {
 .fieldset {
   border: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.material-design-icon {
-  height: 24px;
 }
 </style>

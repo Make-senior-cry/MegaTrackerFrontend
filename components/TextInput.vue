@@ -1,6 +1,6 @@
 <template>
   <label class="container">
-    <slot name="icon"></slot>
+    <slot></slot>
     <input
       :type="type"
       :value="value"

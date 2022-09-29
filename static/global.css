@@ -25,3 +25,13 @@ body {
 body {
   margin: 0;
 }
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.material-design-icon {
+  height: 24px;
+}
