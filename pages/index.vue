@@ -22,9 +22,9 @@ export default {
     error: null,
   }),
   async mounted() {
+    this.error = null;
     try {
-      const coins = await this.$axios.$get('http://localhost:8080/coins')
-      this.coins = coins
+      this.coins = await this.$axios.$get('http://localhost:8080/coins')
     } catch (e) {
       console.log({ e })
       this.error = e
