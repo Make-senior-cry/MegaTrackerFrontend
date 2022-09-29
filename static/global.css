@@ -35,3 +35,7 @@ body {
 .material-design-icon {
   height: 24px;
 }
+
+button, input, textarea {
+  outline: none;
+}
