@@ -5,7 +5,7 @@
       Войдите аккаунт, чтобы добавлять валются в избранное
     </ActionButton>
     <div class="group">
-      <TextInput placeholder="Начните вводить тикер..."><Magnify/></TextInput>
+      <TextInput placeholder="Начните вводить тикер..."><Magnify /></TextInput>
       <PrimaryButton><FilterMultipleOutline />Настроить фильтры</PrimaryButton>
     </div>
     <ErrorFallback v-if="error" :error="error" />
