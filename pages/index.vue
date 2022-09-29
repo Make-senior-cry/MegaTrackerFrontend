@@ -22,7 +22,7 @@ export default {
     error: null,
   }),
   async mounted() {
-    this.error = null;
+    this.error = null
     try {
       this.coins = await this.$axios.$get('http://localhost:8080/coins')
     } catch (e) {
