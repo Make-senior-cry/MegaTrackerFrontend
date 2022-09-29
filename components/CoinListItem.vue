@@ -12,7 +12,7 @@
     <div class="rightSide">
       <div class="priceInfo">
         <TextContent :value="coin.currentPrice + ' $'" variant="H3" />
-        <CoinDeltaPrice :delta-price="coin.deltaPrice"/>
+        <CoinDeltaPrice :delta-price="coin.deltaPrice" />
       </div>
       <button
         v-if="showFavourite"
