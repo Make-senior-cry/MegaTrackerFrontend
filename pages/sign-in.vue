@@ -4,7 +4,7 @@
       <TextInput v-model="email" placeholder="Email" />
       <TextInput v-model="password" placeholder="Пароль" />
     </fieldset>
-    <PrimaryButton>Продолжить <ArrowRight :size="24" /></PrimaryButton>
+    <PrimaryButton>Продолжить <ArrowRight/></PrimaryButton>
     <ActionButton
       ><AccountPlusOutline />У меня пока нет аккаунта, создать
       новый</ActionButton
