@@ -1,9 +1,18 @@
 <template>
   <div class="layout">
-    <nav>Navigation</nav>
+    <AppBar>
+      <slot name="actions"></slot>
+    </AppBar>
     <slot></slot>
   </div>
 </template>
+
+<script>
+import AppBar from './AppBar.vue'
+export default {
+  components: { AppBar },
+}
+</script>
 
 <style scoped>
 .layout {

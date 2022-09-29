@@ -36,6 +36,8 @@ body {
   height: 24px;
 }
 
-button, input, textarea {
+button,
+input,
+textarea {
   outline: none;
 }
