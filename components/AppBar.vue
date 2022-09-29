@@ -2,7 +2,9 @@
   <nav class="container">
     <div class="appBar">
       <h2 class="title">Mega tracker</h2>
-      <span v-if="pageName && pageName.length > 0" class="pageName">{{pageName}}</span>
+      <span v-if="pageName && pageName.length > 0" class="pageName">{{
+        pageName
+      }}</span>
     </div>
     <div>
       <slot></slot>
@@ -13,10 +15,10 @@
 <script>
 export default {
   computed: {
-    pageName(){
-      return null;
-    }
-  }
+    pageName() {
+      return null
+    },
+  },
 }
 </script>
 
