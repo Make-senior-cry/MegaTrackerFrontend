@@ -7,7 +7,7 @@
       container_large: large,
     }"
   >
-    <TextContent :value="price + ' $ (' + deltaPricePercent + ' %)'" />
+    <TextContent :value="price + ' $ (' + (isIncreased ? '+' : '') + deltaPricePercent + '%)'" />
   </div>
 </template>
 <!-- TODO исправить deltaPricePercent required на true-->

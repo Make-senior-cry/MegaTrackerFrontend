@@ -1,11 +1,11 @@
 <template>
   <div class="coinContainer">
     <div class="date">
-      <TextContent :value="coinPriceItem.date" />
+      <TextContent :value="coinPriceItem.dateTime" />
     </div>
     <div class="priceInfo">
-      <TextContent :value="coinPriceItem.currentPrice" variant="H3" />
-      <CoinDeltaPrice :delta-price="coinPriceItem.deltaPrice" />
+      <TextContent :value="coinPriceItem.closingPrice" variant="H3" />
+      <CoinDeltaPrice :delta-price="coinPriceItem.deltaClosingPrice" />
     </div>
   </div>
 </template>

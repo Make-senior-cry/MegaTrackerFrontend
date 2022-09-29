@@ -50,8 +50,7 @@ export default {
     coins: [],
   }),
   mounted() {
-    this.$axios.$get(this.url)
-      .then((response) => (this.coins = response))
+    this.$axios.$get(this.url).then((response) => (this.coins = response))
   },
 }
 </script>
@@ -75,6 +74,5 @@ export default {
 }
 
 .headerRightSide {
-
 }
 </style>
