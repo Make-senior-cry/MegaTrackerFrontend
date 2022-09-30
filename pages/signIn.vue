@@ -15,7 +15,7 @@
 <script>
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue'
-import DefaultLayout from '../components/DefaultLayout.vue'
+import DefaultLayout from '~/components/DefaultLayout.vue'
 import TextInput from '~/components/TextInput.vue'
 import PrimaryButton from '~/components/PrimaryButton.vue'
 import ActionButton from '~/components/ActionButton.vue'

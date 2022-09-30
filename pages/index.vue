@@ -1,11 +1,13 @@
 <template>
   <DefaultLayout>
-    <ActionButton>
+    <ActionButton @click="navigateToSignIn">
       <AccountPlusOutline />
       Войдите аккаунт, чтобы добавлять валются в избранное
     </ActionButton>
     <div class="group">
-      <TextInput placeholder="Начните вводить тикер..."><Magnify /></TextInput>
+      <TextInput v-model="search" placeholder="Начните вводить тикер..."
+        ><Magnify
+      /></TextInput>
       <PrimaryButton><FilterMultipleOutline />Настроить фильтры</PrimaryButton>
     </div>
     <ErrorFallback v-if="error" :error="error" />
@@ -40,6 +42,7 @@ export default {
   data: () => ({
     coins: [],
     error: null,
+    search: '',
   }),
   async mounted() {
     this.error = null
@@ -49,6 +52,11 @@ export default {
       console.log({ e })
       this.error = e
     }
+  },
+  methods: {
+    navigateToSignIn() {
+      this.$router.push({ name: 'signIn' })
+    },
   },
 }
 </script>
