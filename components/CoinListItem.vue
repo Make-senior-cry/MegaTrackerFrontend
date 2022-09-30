@@ -19,7 +19,7 @@
         class="buttonFavourite"
         @click="$emit('clickFavourite')"
       >
-        <HeartIcon v-if="isFavourite" :size="32" color="black" />
+        <HeartIcon v-if="coin.isFavorite" :size="32" color="black" />
         <HeartOutlineIcon v-else :size="32" color="black" />
       </button>
     </div>
@@ -31,19 +31,16 @@ import HeartIcon from 'vue-material-design-icons/Heart.vue'
 import HeartOutlineIcon from 'vue-material-design-icons/HeartOutline.vue'
 import TextContent from './TextContent.vue'
 import CoinDeltaPrice from '~/components/CoinDeltaPrice'
+import { CoinListItemDTO } from '~/dto/CoinListItemDTO'
 
 export default {
   components: { CoinDeltaPrice, TextContent, HeartIcon, HeartOutlineIcon },
   props: {
     coin: {
-      type: Object,
+      type: CoinListItemDTO,
       required: true,
     },
     showFavourite: {
-      type: Boolean,
-      default: false,
-    },
-    isFavourite: {
       type: Boolean,
       default: false,
     },
