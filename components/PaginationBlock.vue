@@ -38,7 +38,7 @@ export default {
       if (this.count - this.current < 3) {
         return [1, '←', this.count - 2, this.count - 1, this.count]
       }
-      
+
       return [1, '←', this.current, '→', this.count]
     },
     itemWidth() {
@@ -48,8 +48,8 @@ export default {
   methods: {
     handleClickPage(pageNumber) {
       if (this.isArrow(pageNumber)) {
-        const middleIndex = Math.floor(this.pageLinks.length / 2);
-        const middleElement = this.pageLinks[middleIndex];
+        const middleIndex = Math.floor(this.pageLinks.length / 2)
+        const middleElement = this.pageLinks[middleIndex]
         pageNumber = middleElement + (pageNumber === '←' ? -1 : 1)
       }
 
