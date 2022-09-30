@@ -4,7 +4,7 @@
       <TextInput v-model="email" placeholder="Email" />
       <TextInput v-model="password" placeholder="Пароль" />
     </fieldset>
-    <PrimaryButton>Продолжить <ArrowRight /></PrimaryButton>
+    <PrimaryButton @click="login">Продолжить <ArrowRight /></PrimaryButton>
     <ActionButton>
       <AccountPlusOutline />
       У меня пока нет аккаунта, создать новый
@@ -19,6 +19,7 @@ import DefaultLayout from '~/components/DefaultLayout.vue'
 import TextInput from '~/components/TextInput.vue'
 import PrimaryButton from '~/components/PrimaryButton.vue'
 import ActionButton from '~/components/ActionButton.vue'
+import AuthAPI from '~/api/AuthAPI'
 
 export default {
   components: {
@@ -33,6 +34,13 @@ export default {
     email: '',
     password: '',
   }),
+  methods: {
+    login() {
+      AuthAPI.login(this.email, this.password)
+        .then(console.log)
+        .catch(console.error)
+    },
+  },
 }
 </script>
 
