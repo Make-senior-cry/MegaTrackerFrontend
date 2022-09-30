@@ -1,5 +1,5 @@
 export const pageNames = {
-  index: null,
+  index: () => null,
   signIn: () => 'Войти в аккаунт',
   signUp: () => 'Создать аккаунт',
   applyFilters: () => 'Фильтры',
@@ -7,3 +7,5 @@ export const pageNames = {
   updatePassword: () => 'Обновить пароль',
   ticker: ({ ticker }) => ticker,
 }
+
+export const baseURL = process.env.BASE_URL || 'http://localhost:8080'
