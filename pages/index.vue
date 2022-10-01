@@ -89,7 +89,7 @@ export default {
         const { coins, pageCount } = await CoinsAPI.getCoins({
           page: this.currentPage,
         })
-        this.coint = coins
+        this.coins = coins
         this.pageCount = pageCount
       } catch (e) {
         console.error(e)
