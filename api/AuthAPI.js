@@ -7,7 +7,7 @@ export default class AuthAPI {
   }
 
   static async register(email, password, repeatedPassword) {
-    const response = await this.http.post(`/auth/sign-up`, {
+    const response = await http.post(`/auth/sign-up`, {
       email,
       password,
       repeatedPassword,
