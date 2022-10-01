@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.cotnainer {
+.container {
   display: flex;
   align-items: center;
 }
