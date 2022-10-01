@@ -1,5 +1,8 @@
 <template>
   <DefaultLayout>
+    <template #actions>
+      <NuxtLink to="/userProfile"><AccountCircleOutline /></NuxtLink>
+    </template>
     <NuxtLink v-if="!isLoggedIn" to="/signIn">
       <ActionButton>
         <AccountPlusOutline />
@@ -19,7 +22,7 @@
       <PrimaryButton><FilterMultipleOutline />Настроить фильтры</PrimaryButton>
     </div>
     <ErrorFallback v-if="error" :error="error" />
-    <coin-list v-else :coins="coins" />
+    <coin-list v-else :coins="coins" :loading="loading" />
     <PaginationBlock
       :current="currentPage"
       :count="pageCount"
@@ -32,6 +35,7 @@
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue'
 import FilterMultipleOutline from 'vue-material-design-icons/FilterMultipleOutline.vue'
 import Magnify from 'vue-material-design-icons/Magnify.vue'
+import AccountCircleOutline from 'vue-material-design-icons/AccountCircleOutline.vue'
 import CoinList from '~/components/CoinList'
 import ErrorFallback from '~/components/ErrorFallback.vue'
 import DefaultLayout from '~/components/DefaultLayout.vue'
@@ -49,6 +53,7 @@ export default {
     ErrorFallback,
     DefaultLayout,
     ActionButton,
+    AccountCircleOutline,
     AccountPlusOutline,
     TextInput,
     PrimaryButton,
@@ -57,6 +62,7 @@ export default {
     PaginationBlock,
   },
   data: () => ({
+    loading: false,
     coins: [],
     error: null,
     search: '',
@@ -78,11 +84,18 @@ export default {
     },
     async fetchCoins() {
       this.error = null
+      this.loading = true
       try {
-        this.coins = await CoinsAPI.getCoins({ page: this.currentPage })
+        const { coins, pageCount } = await CoinsAPI.getCoins({
+          page: this.currentPage,
+        })
+        this.coint = coins
+        this.pageCount = pageCount
       } catch (e) {
         console.error(e)
         this.error = e
+      } finally {
+        this.loading = false
       }
     },
   },

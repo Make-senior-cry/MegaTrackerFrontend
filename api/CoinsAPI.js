@@ -6,6 +6,11 @@ export default class CoinsAPI {
     const response = await http.get('/coins', {
       params: { page, pageSize },
     })
-    return response.data.map((coin) => new CoinListItemDTO(coin))
+    const { coins, pageCount } = response.data
+
+    return {
+      pageCount,
+      coins: coins.map((coin) => new CoinListItemDTO(coin)),
+    }
   }
 }
