@@ -1,7 +1,7 @@
 import { setAuthHeader } from '~/api/http'
 import parseJWT from '~/utils/parseJWT'
 
-export default class AuthServie {
+export default class AuthService {
   static localStorageAuthItemName = 'auth'
 
   static getTokens() {
@@ -23,9 +23,9 @@ export default class AuthServie {
   }
 
   static getUserEmail() {
-    const data = AuthServie.getTokens()
+    const data = this.getTokens()
     if (!data) return null
 
-    return parseJWT(data.accessToken).email
+    return parseJWT(data.accessToken).sub
   }
 }
