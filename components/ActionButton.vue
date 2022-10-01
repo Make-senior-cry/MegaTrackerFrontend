@@ -11,6 +11,8 @@
   background-color: var(--green-background);
   border: 1px solid var(--black-stroke);
   display: flex;
+  align-items: center;
+  width: 100%;
   text-align: left;
   gap: 1rem;
   transition: opacity 0.1s;
