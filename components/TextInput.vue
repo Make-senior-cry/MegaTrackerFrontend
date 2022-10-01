@@ -2,10 +2,9 @@
   <label class="container">
     <slot></slot>
     <input
-      :type="type"
-      :value="value"
-      :placeholder="placeholder"
+      v-bind="attrs"
       class="input"
+      :value="value"
       @input="$emit('input', $event.target.value)"
     />
   </label>
@@ -18,13 +17,9 @@ export default {
       type: String,
       required: true,
     },
-    type: {
-      type: String,
-      default: 'text',
-    },
-    placeholder: {
-      type: String,
-      default: '',
+    attrs: {
+      type: Object,
+      default: () => {},
     },
   },
 }

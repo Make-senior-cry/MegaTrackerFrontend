@@ -1,13 +1,21 @@
 <template>
   <DefaultLayout>
-    <ActionButton @click="navigateToSignIn">
-      <AccountPlusOutline />
-      Войдите аккаунт, чтобы добавлять валются в избранное
-    </ActionButton>
+    <NuxtLink v-if="!isLoggedIn" to="/signIn">
+      <ActionButton>
+        <AccountPlusOutline />
+        Войдите аккаунт, чтобы добавлять валются в избранное
+      </ActionButton>
+    </NuxtLink>
     <div class="group">
-      <TextInput v-model="search" placeholder="Начните вводить тикер..."
-        ><Magnify
-      /></TextInput>
+      <TextInput
+        v-model="search"
+        :attrs="{
+          placeholder: 'Начните вводить тикер...',
+          type: 'text',
+        }"
+      >
+        <Magnify />
+      </TextInput>
       <PrimaryButton><FilterMultipleOutline />Настроить фильтры</PrimaryButton>
     </div>
     <ErrorFallback v-if="error" :error="error" />
@@ -25,6 +33,7 @@ import DefaultLayout from '~/components/DefaultLayout.vue'
 import ActionButton from '~/components/ActionButton.vue'
 import TextInput from '~/components/TextInput.vue'
 import PrimaryButton from '~/components/PrimaryButton.vue'
+import AuthService from '~/services/AuthService'
 
 export default {
   name: 'IndexPage',
@@ -44,6 +53,11 @@ export default {
     error: null,
     search: '',
   }),
+  computed: {
+    isLoggedIn() {
+      return !!AuthService.getUserEmail()
+    },
+  },
   async mounted() {
     this.error = null
     try {
@@ -52,11 +66,6 @@ export default {
       console.log({ e })
       this.error = e
     }
-  },
-  methods: {
-    navigateToSignIn() {
-      this.$router.push({ name: 'signIn' })
-    },
   },
 }
 </script>
