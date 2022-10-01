@@ -1,44 +1,82 @@
 <template>
   <DefaultLayout>
-    <fieldset class="fieldset group">
-      <TextInput v-model="email" placeholder="Email" />
-      <TextInput v-model="password" placeholder="Пароль" />
-    </fieldset>
-    <PrimaryButton @click="login">Продолжить <ArrowRight /></PrimaryButton>
-    <ActionButton>
-      <AccountPlusOutline />
-      У меня пока нет аккаунта, создать новый
-    </ActionButton>
+    <form class="form" @submit.prevent="login">
+      <fieldset class="fieldset group">
+        <TextInput
+          v-model="email"
+          :attrs="{
+            required: true,
+            placeholder: 'Email',
+            type: 'email',
+            autocomplete: 'username',
+          }"
+        >
+          <At />
+        </TextInput>
+        <TextInput
+          v-model="password"
+          :attrs="{
+            placeholder: 'Пароль',
+            type: 'password',
+            required: true,
+            minlength: 8,
+            maxlength: 16,
+            autocomplete: 'current-password',
+          }"
+        >
+          <KeyOutline />
+        </TextInput>
+      </fieldset>
+      <PrimaryButton type="submit">Продолжить <ArrowRight /></PrimaryButton>
+    </form>
+    <NuxtLink to="/signUp">
+      <ActionButton>
+        <AccountPlusOutline />
+        У меня пока нет аккаунта, создать новый
+      </ActionButton>
+    </NuxtLink>
   </DefaultLayout>
 </template>
 
 <script>
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import AccountPlusOutline from 'vue-material-design-icons/AccountPlusOutline.vue'
+import At from 'vue-material-design-icons/At.vue'
+import KeyOutline from 'vue-material-design-icons/KeyOutline.vue'
 import DefaultLayout from '~/components/DefaultLayout.vue'
 import TextInput from '~/components/TextInput.vue'
 import PrimaryButton from '~/components/PrimaryButton.vue'
 import ActionButton from '~/components/ActionButton.vue'
 import AuthAPI from '~/api/AuthAPI'
+import AuthService from '~/services/AuthService'
 
 export default {
   components: {
     TextInput,
+    At,
     PrimaryButton,
     ActionButton,
     ArrowRight,
     DefaultLayout,
     AccountPlusOutline,
+    KeyOutline,
   },
   data: () => ({
     email: '',
     password: '',
   }),
   methods: {
-    login() {
-      AuthAPI.login(this.email, this.password)
-        .then(console.log)
-        .catch(console.error)
+    async login() {
+      try {
+        const { accessToken, refreshToken } = await AuthAPI.login(
+          this.email,
+          this.password
+        )
+        AuthService.setUser(accessToken, refreshToken)
+        this.$router.replace('/')
+      } catch (e) {
+        alert(e.message)
+      }
     },
   },
 }
@@ -48,5 +86,11 @@ export default {
 .fieldset {
   border: none;
   padding: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>
