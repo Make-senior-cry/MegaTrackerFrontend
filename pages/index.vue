@@ -20,6 +20,11 @@
     </div>
     <ErrorFallback v-if="error" :error="error" />
     <coin-list v-else :coins="coins" />
+    <PaginationBlock
+      :current="currentPage"
+      :count="pageCount"
+      @clickPage="handleClickPage"
+    />
   </DefaultLayout>
 </template>
 
@@ -34,6 +39,8 @@ import ActionButton from '~/components/ActionButton.vue'
 import TextInput from '~/components/TextInput.vue'
 import PrimaryButton from '~/components/PrimaryButton.vue'
 import AuthService from '~/services/AuthService'
+import PaginationBlock from '~/components/PaginationBlock.vue'
+import CoinsAPI from '~/api/CoinsAPI'
 
 export default {
   name: 'IndexPage',
@@ -47,25 +54,37 @@ export default {
     PrimaryButton,
     FilterMultipleOutline,
     Magnify,
+    PaginationBlock,
   },
   data: () => ({
     coins: [],
     error: null,
     search: '',
+    currentPage: 1,
+    pageCount: 10,
   }),
   computed: {
     isLoggedIn() {
       return !!AuthService.getUserEmail()
     },
   },
-  async mounted() {
-    this.error = null
-    try {
-      this.coins = await this.$axios.$get('http://localhost:8080/coins')
-    } catch (e) {
-      console.log({ e })
-      this.error = e
-    }
+  mounted() {
+    this.fetchCoins()
+  },
+  methods: {
+    handleClickPage(newPage) {
+      this.currentPage = newPage
+      this.fetchCoins()
+    },
+    async fetchCoins() {
+      this.error = null
+      try {
+        this.coins = await CoinsAPI.getCoins({ page: this.currentPage })
+      } catch (e) {
+        console.error(e)
+        this.error = e
+      }
+    },
   },
 }
 </script>
