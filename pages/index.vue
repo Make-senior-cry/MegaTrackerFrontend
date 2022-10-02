@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <template #actions>
+    <template v-if="isLoggedIn" #actions>
       <NuxtLink to="/userProfile"><AccountCircleOutline /></NuxtLink>
     </template>
     <NuxtLink v-if="!isLoggedIn" to="/signIn">
