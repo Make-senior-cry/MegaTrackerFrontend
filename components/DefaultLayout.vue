@@ -20,7 +20,7 @@ export default {
   padding: 1rem 0.75rem;
   flex-direction: column;
   gap: 1rem;
-  max-width: 50.5rem;
+  max-width: 38rem;
   margin: 0 auto;
 }
 </style>
