@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <form class="form" @submit.prevent="login">
+    <form class="form" @submit.prevent="register">
       <fieldset class="fieldset group">
         <TextInput
           v-model="email"
@@ -87,7 +87,7 @@ export default {
         throw new Error('Пароли не совпадают')
       }
     },
-    async login() {
+    async register() {
       try {
         this.validatePasswordFields()
         await AuthAPI.register(this.email, this.password, this.repeatedPassword)
