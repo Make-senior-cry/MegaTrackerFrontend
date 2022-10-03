@@ -4,7 +4,7 @@
       <TextContent :value="date" />
     </div>
     <div class="priceInfo">
-      <TextContent :value="coinPriceItem.closingPrice" variant="H3" />
+      <TextContent :value="String(coinPriceItem.closingPrice)" variant="H3" />
       <CoinDeltaPrice :delta-price="coinPriceItem.deltaClosingPrice" />
     </div>
   </div>
