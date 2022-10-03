@@ -7,6 +7,7 @@
         :name="coin.name"
         :ticker="ticker"
         :is-favorite="coin.isFavorite"
+        @clickFavorite="handleFavorite"
       />
       <div class="infoContainer">
         <CoinInfoBlock title="Текущая цена">
@@ -20,17 +21,27 @@
           />
         </CoinInfoBlock>
       </div>
+      <ExpandingTextInput
+        :value="note"
+        label="Ваша заметка о бумаге"
+        @input="handleChangeNote"
+        ><File
+      /></ExpandingTextInput>
     </template>
   </div>
 </template>
 
 <script>
+import File from 'vue-material-design-icons/File.vue'
 import CoinHeader from './CoinHeader.vue'
 import CoinInfoBlock from './CoinInfoBlock.vue'
 import LoadingSpinner from './LoadingSpinner.vue'
 import ErrorFallback from './ErrorFallback.vue'
 import CoinDeltaPrice from './CoinDeltaPrice.vue'
+import ExpandingTextInput from './ExpandingTextInput.vue'
 import CoinsAPI from '~/api/CoinsAPI'
+import debounce from '~/utils/debounce'
+
 export default {
   components: {
     CoinHeader,
@@ -38,6 +49,8 @@ export default {
     LoadingSpinner,
     ErrorFallback,
     CoinDeltaPrice,
+    ExpandingTextInput,
+    File,
   },
   props: {
     ticker: {
@@ -49,6 +62,7 @@ export default {
     coin: null,
     error: null,
     loading: true,
+    note: '',
   }),
   mounted() {
     this.fetchCoin()
@@ -66,6 +80,27 @@ export default {
         this.loading = false
       }
     },
+    handleChangeNote(newValue) {
+      this.note = newValue
+      this.setNoteDebounced()
+    },
+    setNoteDebounced: debounce(async function () {
+      try {
+        await CoinsAPI.setNote(this.ticker, this.note)
+      } catch (e) {
+        console.error(e)
+      }
+    }, 1500),
+    async handleFavorite() {
+      const newFavorite = !this.coin.isFavorite;
+      this.coin.isFavorite = newFavorite;
+      try {
+        await CoinsAPI.setFavoriteByTicker(this.ticker, newFavorite);
+      } catch(e) {
+        console.error(e);
+        this.coin.isFavorite = !newFavorite;
+      }
+    }
   },
 }
 </script>

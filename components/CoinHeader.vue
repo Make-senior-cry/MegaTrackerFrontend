@@ -4,7 +4,7 @@
       <TextContent :value="ticker.toUpperCase()" variant="H1" />
       <span class="name">{{ name }}</span>
     </div>
-    <button class="buttonFavourite" @click="$emit('clickFavourite')">
+    <button class="buttonFavourite" @click="$emit('clickFavorite')">
       <HeartIcon v-if="isFavorite" :size="32" color="black" />
       <HeartOutlineIcon v-else :size="32" color="black" />
     </button>
