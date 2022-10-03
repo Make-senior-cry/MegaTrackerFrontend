@@ -19,15 +19,15 @@ export default {
   },
 }
 </script>
-<!-- TODO: проверить отступы, и класс deltaPrice-->
 <style scoped>
 .coinInfoContainer {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   border: 1px solid var(--black-stroke);
   border-radius: 0.5rem;
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 .deltaPrice {
   width: fit-content;

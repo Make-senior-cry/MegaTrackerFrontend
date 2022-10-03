@@ -1,9 +1,7 @@
 <template>
   <!-- TODO: определить, массив каких сущностей принннимает этот компонент -->
   <ul class="coinListContainer">
-    <div v-if="loading" class="loadingContainer">
-      <Loading class="loading" />
-    </div>
+    <LoadingSpinner v-if="loading" />
     <coin-list-item
       v-for="coin of coins"
       v-else
@@ -11,17 +9,18 @@
       :coin="coin"
       :show-favourite="showFavourite"
       @clickFavourite="$emit('clickFavourite', coin.ticker)"
+      @click="$router.push(`/${coin.ticker}`)"
     />
   </ul>
 </template>
 
 <script>
-import Loading from 'vue-material-design-icons/Loading.vue'
+import LoadingSpinner from './LoadingSpinner.vue'
 import CoinListItem from '~/components/CoinListItem'
 
 export default {
   name: 'CoinList',
-  components: { CoinListItem, Loading },
+  components: { CoinListItem, LoadingSpinner },
   props: {
     coins: {
       type: Array,
@@ -45,27 +44,5 @@ export default {
   border: 1px solid var(--black-stroke);
   border-radius: 0.5rem;
   margin: 0;
-}
-
-.loadingContainer {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.loading {
-  animation-name: spin;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 </style>
