@@ -8,7 +8,7 @@
       :key="coin.ticker"
       :coin="coin"
       :show-favourite="showFavourite"
-      @clickFavourite="$emit('clickFavourite', coin.ticker)"
+      @clickFavourite="$emit('clickFavorite', coin.ticker)"
       @click="$router.push(`/${coin.ticker}`)"
     />
   </ul>
