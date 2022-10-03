@@ -21,6 +21,7 @@ import ErrorFallback from './ErrorFallback.vue'
 import LoadingSpinner from './LoadingSpinner.vue'
 import PaginationBlock from './PaginationBlock.vue'
 import CoinsAPI from '~/api/CoinsAPI'
+
 export default {
   components: {
     CoinHistoryList,
