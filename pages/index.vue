@@ -20,7 +20,11 @@
       >
         <Magnify />
       </TextInput>
-      <PrimaryButton><FilterMultipleOutline />Настроить фильтры</PrimaryButton>
+      <NuxtLink to="/filters">
+        <PrimaryButton
+          ><FilterMultipleOutline />Настроить фильтры</PrimaryButton
+        >
+      </NuxtLink>
     </div>
     <ErrorFallback v-if="error" :error="error" />
     <coin-list v-else :coins="coins" :loading="loading" />

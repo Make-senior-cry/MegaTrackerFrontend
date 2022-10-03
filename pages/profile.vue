@@ -4,10 +4,12 @@
       <button @click="logout"><AccountMinusOutline /></button>
     </template>
     <TextContent variant="H1" :value="userEmail" />
-    <ActionButton>
+    <NuxtLink to="/updatePassword">
+      <ActionButton>
       <LockOutline />
       Я хочу поменять пароль
     </ActionButton>
+    </NuxtLink>
     <TextContent variant="H2" value="Избранное" />
     <ProfilePageFavoriteCoinList />
   </DefaultLayout>
