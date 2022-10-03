@@ -1,6 +1,6 @@
-export class CointHistoryListItemDTO {
-  constructor({ date, closingPrice, deltaClosingPrice }) {
-    this.date = date
+export default class CointHistoryListItemDTO {
+  constructor({ dateTime, closingPrice, deltaClosingPrice }) {
+    this.dateTime = dateTime
     this.closingPrice = closingPrice
     this.deltaClosingPrice = deltaClosingPrice
   }
