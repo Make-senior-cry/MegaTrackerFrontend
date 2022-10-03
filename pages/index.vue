@@ -1,7 +1,7 @@
 <template>
   <DefaultLayout>
     <template v-if="isLoggedIn" #actions>
-      <NuxtLink to="/userProfile"><AccountCircleOutline /></NuxtLink>
+      <NuxtLink to="/profile"><AccountCircleOutline /></NuxtLink>
     </template>
     <NuxtLink v-if="!isLoggedIn" to="/signIn">
       <ActionButton>
@@ -11,11 +11,12 @@
     </NuxtLink>
     <div class="group">
       <TextInput
-        v-model="search"
+        :value="search"
         :attrs="{
           placeholder: 'Начните вводить тикер...',
           type: 'text',
         }"
+        @input="handleSearch"
       >
         <Magnify />
       </TextInput>
@@ -45,6 +46,7 @@ import PrimaryButton from '~/components/PrimaryButton.vue'
 import AuthService from '~/services/AuthService'
 import PaginationBlock from '~/components/PaginationBlock.vue'
 import CoinsAPI from '~/api/CoinsAPI'
+import debounce from '~/utils/debounce'
 
 export default {
   name: 'IndexPage',
@@ -78,16 +80,21 @@ export default {
     this.fetchCoins()
   },
   methods: {
+    handleSearch(newValue) {
+      this.search = newValue
+      this.fetchCoinsDebounced()
+    },
     handleClickPage(newPage) {
       this.currentPage = newPage
       this.fetchCoins()
     },
-    async fetchCoins() {
+    async fetchCoins(search) {
       this.error = null
       this.loading = true
       try {
         const { coins, pageCount } = await CoinsAPI.getCoins({
           page: this.currentPage,
+          search,
         })
         this.coins = coins
         this.pageCount = pageCount
@@ -98,6 +105,9 @@ export default {
         this.loading = false
       }
     },
+    fetchCoinsDebounced: debounce(function () {
+      this.fetchCoins()
+    }, 1500),
   },
 }
 </script>
