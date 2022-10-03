@@ -6,9 +6,9 @@
     <TextContent variant="H1" :value="userEmail" />
     <NuxtLink to="/updatePassword">
       <ActionButton>
-      <LockOutline />
-      Я хочу поменять пароль
-    </ActionButton>
+        <LockOutline />
+        Я хочу поменять пароль
+      </ActionButton>
     </NuxtLink>
     <TextContent variant="H2" value="Избранное" />
     <ProfilePageFavoriteCoinList />
