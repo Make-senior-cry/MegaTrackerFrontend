@@ -3,7 +3,7 @@ export const pageNames = {
   signIn: () => 'Войти в аккаунт',
   signUp: () => 'Создать аккаунт',
   applyFilters: () => 'Фильтры',
-  userProfile: () => 'Профиль',
+  profile: () => 'Профиль',
   updatePassword: () => 'Обновить пароль',
   ticker: ({ ticker }) => ticker,
 }
