@@ -92,15 +92,15 @@ export default {
       }
     }, 1500),
     async handleFavorite() {
-      const newFavorite = !this.coin.isFavorite;
-      this.coin.isFavorite = newFavorite;
+      const newFavorite = !this.coin.isFavorite
+      this.coin.isFavorite = newFavorite
       try {
-        await CoinsAPI.setFavoriteByTicker(this.ticker, newFavorite);
-      } catch(e) {
-        console.error(e);
-        this.coin.isFavorite = !newFavorite;
+        await CoinsAPI.setFavoriteByTicker(this.ticker, newFavorite)
+      } catch (e) {
+        console.error(e)
+        this.coin.isFavorite = !newFavorite
       }
-    }
+    },
   },
 }
 </script>
