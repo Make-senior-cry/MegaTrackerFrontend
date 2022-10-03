@@ -7,7 +7,7 @@
       container_large: large,
     }"
   >
-    <TextContent :value="price + ' $'" />
+    <TextContent :value="price + ' $ (' + Math.abs(deltaPricePercent) + '%)'" />
   </div>
 </template>
 
@@ -17,6 +17,10 @@ export default {
   components: { TextContent },
   props: {
     deltaPrice: {
+      type: Number,
+      required: true,
+    },
+    deltaPricePercent: {
       type: Number,
       required: true,
     },
