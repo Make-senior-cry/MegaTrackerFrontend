@@ -44,5 +44,6 @@ export default {
       this.$router.replace('/')
     },
   },
+  middleware: 'auth'
 }
 </script>

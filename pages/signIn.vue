@@ -64,7 +64,7 @@ export default {
   data: () => ({
     email: '',
     password: '',
-    rememberMe: false,
+    rememberMe: true,
   }),
   methods: {
     async login() {

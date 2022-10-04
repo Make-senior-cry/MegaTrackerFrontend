@@ -24,5 +24,6 @@ export default {
       return this.$route.params.ticker
     },
   },
+  middleware: "auth",
 }
 </script>

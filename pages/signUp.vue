@@ -80,7 +80,7 @@ export default {
     email: '',
     password: '',
     repeatedPassword: '',
-    rememberMe: false,
+    rememberMe: true,
   }),
   methods: {
     validatePasswordFields() {
