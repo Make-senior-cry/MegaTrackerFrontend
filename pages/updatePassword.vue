@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <form @submit.prevent="handleUpdatePassword" class="group group_col">
+    <form class="group group_col" @submit.prevent="handleUpdatePassword">
       <fieldset class="group group_col group_dense">
         <TextInput
           v-model="oldPassword"
