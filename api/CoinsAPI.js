@@ -5,7 +5,7 @@ import CointHistoryListItemDTO from '~/dto/CoinHistoryListItemDto'
 export default class CoinsAPI {
   static filters = {
     minPrice: 0,
-    maxPrice: null,
+    maxPrice: 0,
     isRising: false,
   }
 
