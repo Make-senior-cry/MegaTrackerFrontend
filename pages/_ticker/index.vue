@@ -19,11 +19,11 @@ export default {
     CoinPageInfoSection,
     CoinPageHistorySection,
   },
+  middleware: 'auth',
   computed: {
     ticker() {
       return this.$route.params.ticker
     },
   },
-  middleware: "auth",
 }
 </script>

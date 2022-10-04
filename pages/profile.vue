@@ -33,6 +33,7 @@ export default {
     AccountMinusOutline,
     ProfilePageFavoriteCoinList,
   },
+  middleware: 'auth',
   computed: {
     userEmail() {
       return AuthService.getUserEmail()
@@ -44,6 +45,5 @@ export default {
       this.$router.replace('/')
     },
   },
-  middleware: 'auth'
 }
 </script>

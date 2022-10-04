@@ -6,6 +6,6 @@
 import DefaultLayout from '~/components/DefaultLayout.vue'
 export default {
   components: { DefaultLayout },
-  middleware: 'auth'
+  middleware: 'auth',
 }
 </script>
