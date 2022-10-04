@@ -24,4 +24,13 @@ export default class AuthAPI {
     const response = await http.post(`/auth/sign-out`)
     return response.data
   }
+
+  static async updatePassword(oldPassword, newPassword, newPasswordRepeat) {
+    const response = await http.post(`/auth/update-password`, {
+      oldPassword,
+      newPassword,
+      newPasswordRepeat,
+    })
+    return response.data
+  }
 }
