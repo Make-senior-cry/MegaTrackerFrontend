@@ -3,16 +3,16 @@
     <ErrorFallback v-if="error" :error="error" />
     <template v-else>
       <CoinList
-      :coins="coins"
-      :loading="loading"
-      :show-favourite="true"
-      @clickFavorite="handleFavorite"
-    />
-    <PaginationBlock
-      :current="currentPage"
-      :count="pageCount"
-      @clickPage="handleClickPage"
-    />
+        :coins="coins"
+        :loading="loading"
+        :show-favourite="true"
+        @clickFavorite="handleFavorite"
+      />
+      <PaginationBlock
+        :current="currentPage"
+        :count="pageCount"
+        @clickPage="handleClickPage"
+      />
     </template>
   </div>
 </template>
