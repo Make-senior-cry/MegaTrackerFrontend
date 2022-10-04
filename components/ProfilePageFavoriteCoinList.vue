@@ -1,8 +1,8 @@
 <template>
   <div class="ProfilePageFavoriteCoinList">
     <ErrorFallback v-if="error" :error="error" />
-    <CoinList
-      v-else
+    <template v-else>
+      <CoinList
       :coins="coins"
       :loading="loading"
       :show-favourite="true"
@@ -13,6 +13,7 @@
       :count="pageCount"
       @clickPage="handleClickPage"
     />
+    </template>
   </div>
 </template>
 
