@@ -1,4 +1,4 @@
-export default class CointHistoryListItemDTO {
+export default class CoinHistoryListItemDTO {
   constructor({ dateTime, closingPrice, deltaClosingPrice }) {
     this.dateTime = dateTime
     this.closingPrice = closingPrice

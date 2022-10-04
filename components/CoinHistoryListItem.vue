@@ -13,13 +13,13 @@
 <script>
 import TextContent from '~/components/TextContent'
 import CoinDeltaPrice from '~/components/CoinDeltaPrice'
-import CointHistoryListItemDTO from '~/dto/CoinHistoryListItemDto'
+import CoinHistoryListItemDTO from '~/dto/CoinHistoryListItemDto'
 
 export default {
   components: { TextContent, CoinDeltaPrice },
   props: {
     coinPriceItem: {
-      type: CointHistoryListItemDTO,
+      type: CoinHistoryListItemDTO,
       required: true,
     },
   },

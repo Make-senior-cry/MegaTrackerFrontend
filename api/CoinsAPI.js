@@ -1,6 +1,6 @@
 import http from './http'
 import { CoinListItemDTO } from '~/dto/CoinListItemDTO'
-import CointHistoryListItemDTO from '~/dto/CoinHistoryListItemDto'
+import CoinHistoryListItemDTO from '~/dto/CoinHistoryListItemDto'
 
 export default class CoinsAPI {
   static filters = {
@@ -40,7 +40,7 @@ export default class CoinsAPI {
 
   static async getHistoryByTicker(ticker) {
     const response = await http.get(`/coins/${ticker}/history`)
-    return response.data.map((item) => new CointHistoryListItemDTO(item))
+    return response.data.map((item) => new CoinHistoryListItemDTO(item))
   }
 
   static async setFavoriteByTicker(ticker, isFavorite) {
