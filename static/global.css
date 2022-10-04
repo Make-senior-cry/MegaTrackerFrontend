@@ -26,12 +26,6 @@ body {
   margin: 0;
 }
 
-.group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .material-design-icon {
   height: 24px;
   display: block;
@@ -72,4 +66,20 @@ button {
 
 .group_dense {
   gap: 0.5rem;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 480px) {
+  .group_horizontalOnDesktop {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .desktopMaxWidth50Percents {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
 }

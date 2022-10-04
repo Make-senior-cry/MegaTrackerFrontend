@@ -9,7 +9,8 @@
         :is-favorite="coin.isFavorite"
         @clickFavorite="handleFavorite"
       />
-      <div class="infoContainer">
+
+      <div class="group">
         <CoinInfoBlock title="Текущая цена">
           <span class="currentPriceTitle">{{ coin.currentPrice }}</span>
         </CoinInfoBlock>
@@ -110,11 +111,6 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.infoContainer {
-  display: flex;
   gap: 1rem;
 }
 

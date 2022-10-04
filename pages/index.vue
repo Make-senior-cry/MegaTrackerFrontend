@@ -9,7 +9,7 @@
         Войдите аккаунт, чтобы добавлять валются в избранное
       </ActionButton>
     </NuxtLink>
-    <div class="group group_col">
+    <div class="group group_col group_horizontalOnDesktop">
       <TextInput
         :value="search"
         :attrs="{
@@ -20,7 +20,7 @@
       >
         <Magnify />
       </TextInput>
-      <NuxtLink to="/filters">
+      <NuxtLink class="no-shrink" to="/filters">
         <PrimaryButton
           ><FilterMultipleOutline />Настроить фильтры</PrimaryButton
         >
@@ -28,11 +28,13 @@
     </div>
     <ErrorFallback v-if="error" :error="error" />
     <coin-list v-else :coins="coins" :loading="loading" />
-    <PaginationBlock
-      :current="currentPage"
-      :count="pageCount"
-      @clickPage="handleClickPage"
-    />
+    <div class="desktopMaxWidth50Percents">
+      <PaginationBlock
+        :current="currentPage"
+        :count="pageCount"
+        @clickPage="handleClickPage"
+      />
+    </div>
   </DefaultLayout>
 </template>
 

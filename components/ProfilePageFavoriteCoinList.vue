@@ -8,11 +8,13 @@
         :show-favourite="true"
         @clickFavorite="handleFavorite"
       />
-      <PaginationBlock
-        :current="currentPage"
-        :count="pageCount"
-        @clickPage="handleClickPage"
-      />
+      <div class="desktopMaxWidth50Percents">
+        <PaginationBlock
+          :current="currentPage"
+          :count="pageCount"
+          @clickPage="handleClickPage"
+        />
+      </div>
     </template>
   </div>
 </template>

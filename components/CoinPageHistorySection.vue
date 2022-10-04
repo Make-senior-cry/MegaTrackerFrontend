@@ -6,11 +6,13 @@
       <CoinHistoryList
         :coin-price-items="historyItems.slice(currentPage - 1, currentPage + 9)"
       />
-      <PaginationBlock
-        :current="currentPage"
-        :count="3"
-        @clickPage="currentPage = $event"
-      />
+      <div class="desktopMaxWidth50Percents">
+        <PaginationBlock
+          :current="currentPage"
+          :count="3"
+          @clickPage="currentPage = $event"
+        />
+      </div>
     </template>
   </div>
 </template>

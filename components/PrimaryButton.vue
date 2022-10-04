@@ -16,6 +16,7 @@
   border: none;
   border-radius: 0.5rem;
   width: 100%;
+  height: 100%;
   transition: opacity 0.1s;
   font-size: 1rem;
 }
