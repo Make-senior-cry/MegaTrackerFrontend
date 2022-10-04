@@ -27,7 +27,7 @@
           <KeyOutline />
         </TextInput>
       </fieldset>
-      <CheckBox v-model='rememberMe'/>
+      <CheckBox v-model="rememberMe" />
       <PrimaryButton type="submit">Продолжить <ArrowRight /></PrimaryButton>
     </form>
     <NuxtLink to="/signUp">

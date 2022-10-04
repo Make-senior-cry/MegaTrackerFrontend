@@ -1,13 +1,13 @@
 <template>
-  <label class='container'>
+  <label class="container">
     <input
-      :checked='value'
-      name='rememberMe'
-      type='checkbox'
+      :checked="value"
+      name="rememberMe"
+      type="checkbox"
       @change="$emit('input', $event.target.checked)"
     />
-    <span class='checkmark'/>
-    <TextContent :value='text'/>
+    <span class="checkmark" />
+    <TextContent :value="text" />
   </label>
 </template>
 
@@ -23,10 +23,9 @@ export default {
     text: {
       type: String,
       default: 'Запомнить меня',
-    }
+    },
   },
-  data: () => ({
-  }),
+  data: () => ({}),
 }
 </script>
 
@@ -66,7 +65,7 @@ export default {
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
