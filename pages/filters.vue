@@ -1,7 +1,7 @@
 <template>
   <DefaultLayout>
-    <form class='group group_col' @submit.prevent>
-      <fieldset class='group group_col group_dense'>
+    <form class="group group_col" @submit.prevent>
+      <fieldset class="group group_col group_dense">
         <TextContent variant="H2" value="Минимальная цена" />
         <TextInput
           v-model="minPrice"
@@ -13,26 +13,25 @@
           }"
         />
       </fieldset>
-      <fieldset class='group group_col group_dense'>
+      <fieldset class="group group_col group_dense">
         <TextContent variant="H2" value="Максимальная цена" />
         <TextInput
           v-model="maxPrice"
           :attrs="{
             required: true,
             type: 'number',
+            placeholder: 'Введите максимальную цену',
             min: minPrice,
           }"
         />
         <TextContent variant="BODY" value="0, чтобы не учитывать" />
       </fieldset>
-      <fieldset class='group group_col group_dense'>
+      <fieldset class="group group_col group_dense">
         <TextContent variant="H2" value="Растущие коины" />
         <CheckBox v-model="isRising" text="Показывать только растущие коины" />
       </fieldset>
 
-      <PrimaryButton type='submit'>
-        Применить
-      </PrimaryButton>
+      <PrimaryButton type="submit"> Применить </PrimaryButton>
     </form>
   </DefaultLayout>
 </template>
@@ -45,7 +44,13 @@ import TextInput from '~/components/TextInput'
 import CoinsAPI from '~/api/CoinsAPI'
 import PrimaryButton from '~/components/PrimaryButton'
 export default {
-  components: { PrimaryButton, TextInput, DefaultLayout, TextContent, CheckBox },
+  components: {
+    PrimaryButton,
+    TextInput,
+    DefaultLayout,
+    TextContent,
+    CheckBox,
+  },
   data: () => ({
     minPrice: 0,
     maxPrice: 0,
@@ -64,6 +69,6 @@ export default {
       CoinsAPI.setFiltersRising(isRising)
       this.isRising = CoinsAPI.filters.isRising
     },
-  }
+  },
 }
 </script>
