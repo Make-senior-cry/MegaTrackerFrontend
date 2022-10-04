@@ -40,6 +40,7 @@
           <ShieldKeyOutline />
         </TextInput>
       </fieldset>
+      <CheckBox v-model='rememberMe'/>
       <PrimaryButton type="submit">Продолжить <ArrowRight /></PrimaryButton>
     </form>
     <NuxtLink to="/signIn">
@@ -63,6 +64,7 @@ import PrimaryButton from '~/components/PrimaryButton.vue'
 import ActionButton from '~/components/ActionButton.vue'
 import AuthAPI from '~/api/AuthAPI'
 import AuthService from '~/services/AuthService'
+import CheckBox from '~/components/CheckBox'
 
 export default {
   components: {
@@ -75,6 +77,7 @@ export default {
     AccountOutline,
     ShieldKeyOutline,
     KeyOutline,
+    CheckBox,
   },
   data: () => ({
     email: '',
