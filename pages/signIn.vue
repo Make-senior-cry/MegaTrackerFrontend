@@ -27,7 +27,7 @@
           <KeyOutline />
         </TextInput>
       </fieldset>
-      <CheckBox />
+      <CheckBox v-model='rememberMe'/>
       <PrimaryButton type="submit">Продолжить <ArrowRight /></PrimaryButton>
     </form>
     <NuxtLink to="/signUp">
@@ -67,6 +67,7 @@ export default {
   data: () => ({
     email: '',
     password: '',
+    rememberMe: false,
   }),
   methods: {
     async login() {

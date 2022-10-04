@@ -1,13 +1,13 @@
 <template>
   <label class='container'>
     <input
-      v-model='isChecked'
+      :checked='value'
       name='rememberMe'
       type='checkbox'
-      @input="$emit('input', $event.target.isChecked)"
+      @change="$emit('input', $event.target.checked)"
     />
     <span class='checkmark'/>
-    <TextContent :value='value'/>
+    <TextContent :value='text'/>
   </label>
 </template>
 
@@ -17,12 +17,15 @@ export default {
   components: { TextContent },
   props: {
     value: {
+      type: Boolean,
+      default: false,
+    },
+    text: {
       type: String,
       default: 'Запомнить меня',
     }
   },
   data: () => ({
-    isChecked: false,
   }),
 }
 </script>

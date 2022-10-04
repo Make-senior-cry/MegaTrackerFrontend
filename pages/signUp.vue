@@ -40,7 +40,7 @@
           <ShieldKeyOutline />
         </TextInput>
       </fieldset>
-      <CheckBox />
+      <CheckBox v-model='rememberMe'/>
       <PrimaryButton type="submit">Продолжить <ArrowRight /></PrimaryButton>
     </form>
     <NuxtLink to="/signIn">
@@ -83,6 +83,7 @@ export default {
     email: '',
     password: '',
     repeatedPassword: '',
+    rememberMe: false,
   }),
   methods: {
     validatePasswordFields() {
