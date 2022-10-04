@@ -1,7 +1,7 @@
 <template>
   <DefaultLayout>
-    <form class="form" @submit.prevent="register">
-      <fieldset class="fieldset group">
+    <form class="group group_col" @submit.prevent="register">
+      <fieldset class="fieldset group group_col group_dense">
         <TextInput
           v-model="email"
           :attrs="{
@@ -107,11 +107,5 @@ export default {
 .fieldset {
   border: none;
   padding: 0;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 </style>

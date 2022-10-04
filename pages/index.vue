@@ -9,7 +9,7 @@
         Войдите аккаунт, чтобы добавлять валются в избранное
       </ActionButton>
     </NuxtLink>
-    <div class="group">
+    <div class="group group_col">
       <TextInput
         :value="search"
         :attrs="{
@@ -115,11 +115,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.showcase {
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-</style>
