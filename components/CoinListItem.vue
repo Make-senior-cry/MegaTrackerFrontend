@@ -1,5 +1,5 @@
 <template>
-  <div class="coinContainer">
+  <div class="coinContainer" @click="$emit('click', $event)">
     <div class="leftSide">
       <img class="coinIcon" :src="coin.iconUrl" :alt="coin.name" />
       <div class="info">
@@ -12,12 +12,15 @@
     <div class="rightSide">
       <div class="priceInfo">
         <TextContent :value="coin.currentPrice + ' $'" variant="H3" />
-        <CoinDeltaPrice :delta-price="coin.deltaPrice" />
+        <CoinDeltaPrice
+          :delta-price="coin.deltaPrice"
+          :delta-price-percent="coin.deltaPricePercent"
+        />
       </div>
       <button
         v-if="showFavourite"
         class="buttonFavourite"
-        @click="$emit('clickFavourite')"
+        @click.stop="$emit('clickFavourite')"
       >
         <HeartIcon v-if="coin.isFavorite" :size="32" color="black" />
         <HeartOutlineIcon v-else :size="32" color="black" />

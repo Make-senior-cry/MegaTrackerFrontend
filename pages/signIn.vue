@@ -1,7 +1,7 @@
 <template>
   <DefaultLayout>
-    <form class="form" @submit.prevent="login">
-      <fieldset class="fieldset group">
+    <form class="group group_col" @submit.prevent="login">
+      <fieldset class="fieldset group group_col group_dense">
         <TextInput
           v-model="email"
           :attrs="{
@@ -67,16 +67,13 @@ export default {
   data: () => ({
     email: '',
     password: '',
-    rememberMe: false,
+    rememberMe: true,
   }),
   methods: {
     async login() {
       try {
-        const { accessToken, refreshToken } = await AuthAPI.login(
-          this.email,
-          this.password
-        )
-        AuthService.setUser(accessToken, refreshToken)
+        const tokens = await AuthAPI.login(this.email, this.password)
+        AuthService.setUser(tokens, this.rememberMe)
         this.$router.replace('/')
       } catch (e) {
         alert(e.message)
@@ -90,11 +87,5 @@ export default {
 .fieldset {
   border: none;
   padding: 0;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 </style>

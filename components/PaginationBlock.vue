@@ -48,9 +48,7 @@ export default {
   methods: {
     handleClickPage(pageNumber) {
       if (this.isArrow(pageNumber)) {
-        const middleIndex = Math.floor(this.pageLinks.length / 2)
-        const middleElement = this.pageLinks[middleIndex]
-        pageNumber = middleElement + (pageNumber === '←' ? -1 : 1)
+        pageNumber = this.current + (pageNumber === '←' ? -1 : 1)
       }
 
       this.$emit('clickPage', pageNumber)

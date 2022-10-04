@@ -7,7 +7,7 @@
       container_large: large,
     }"
   >
-    <TextContent :value="price + ' $'" />
+    <TextContent :value="`${price}$`" />
   </div>
 </template>
 
@@ -19,6 +19,10 @@ export default {
     deltaPrice: {
       type: Number,
       required: true,
+    },
+    deltaPricePercent: {
+      type: Number,
+      required: false,
     },
     large: {
       type: Boolean,
@@ -52,6 +56,9 @@ export default {
   background-color: var(--red-background);
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  max-width: 7.5rem;
+  text-overflow: ellipsis;
 }
 
 .container_large {

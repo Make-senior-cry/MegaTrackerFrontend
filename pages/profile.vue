@@ -4,10 +4,14 @@
       <button @click="logout"><AccountMinusOutline /></button>
     </template>
     <TextContent variant="H1" :value="userEmail" />
-    <ActionButton>
-      <LockOutline />
-      Я хочу поменять пароль
-    </ActionButton>
+    <NuxtLink to="/updatePassword">
+      <ActionButton>
+        <LockOutline />
+        Я хочу поменять пароль
+      </ActionButton>
+    </NuxtLink>
+    <TextContent variant="H2" value="Избранное" />
+    <ProfilePageFavoriteCoinList />
   </DefaultLayout>
 </template>
 
@@ -18,6 +22,7 @@ import TextContent from '../components/TextContent.vue'
 import DefaultLayout from '~/components/DefaultLayout.vue'
 import AuthService from '~/services/AuthService'
 import ActionButton from '~/components/ActionButton.vue'
+import ProfilePageFavoriteCoinList from '~/components/ProfilePageFavoriteCoinList.vue'
 
 export default {
   components: {
@@ -26,7 +31,9 @@ export default {
     ActionButton,
     LockOutline,
     AccountMinusOutline,
+    ProfilePageFavoriteCoinList,
   },
+  middleware: 'auth',
   computed: {
     userEmail() {
       return AuthService.getUserEmail()

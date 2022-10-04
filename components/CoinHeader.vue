@@ -1,11 +1,11 @@
 <template>
-  <header class="container">
+  <header class="CoinHeader">
     <div class="info">
       <TextContent :value="ticker.toUpperCase()" variant="H1" />
       <span class="name">{{ name }}</span>
     </div>
-    <button class="buttonFavourite" @click="$emit('clickFavourite')">
-      <HeartIcon v-if="isFavourite" :size="32" color="black" />
+    <button class="buttonFavourite" @click="$emit('clickFavorite')">
+      <HeartIcon v-if="isFavorite" :size="32" color="black" />
       <HeartOutlineIcon v-else :size="32" color="black" />
     </button>
   </header>
@@ -27,7 +27,7 @@ export default {
       type: String,
       required: true,
     },
-    isFavourite: {
+    isFavorite: {
       type: Boolean,
       required: true,
     },
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.CoinHeader {
   display: flex;
   align-content: center;
   justify-content: space-between;

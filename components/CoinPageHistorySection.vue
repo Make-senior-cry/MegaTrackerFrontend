@@ -1,0 +1,70 @@
+<template>
+  <div class="CoinPageHistorySection">
+    <ErrorFallback v-if="error" :error="error" />
+    <LoadingSpinner v-else-if="loading" />
+    <template v-else>
+      <CoinHistoryList
+        :coin-price-items="historyItems.slice(currentPage - 1, currentPage + 9)"
+      />
+      <PaginationBlock
+        :current="currentPage"
+        :count="3"
+        @clickPage="currentPage = $event"
+      />
+    </template>
+  </div>
+</template>
+
+<script>
+import CoinHistoryList from './CoinHistoryList.vue'
+import ErrorFallback from './ErrorFallback.vue'
+import LoadingSpinner from './LoadingSpinner.vue'
+import PaginationBlock from './PaginationBlock.vue'
+import CoinsAPI from '~/api/CoinsAPI'
+
+export default {
+  components: {
+    CoinHistoryList,
+    ErrorFallback,
+    LoadingSpinner,
+    PaginationBlock,
+  },
+  props: {
+    ticker: {
+      type: String,
+      required: true,
+    },
+  },
+  data: () => ({
+    historyItems: [],
+    currentPage: 1,
+    error: null,
+    loading: true,
+  }),
+  mounted() {
+    this.fetchHistory()
+  },
+  methods: {
+    async fetchHistory() {
+      this.loading = true
+      this.error = false
+      try {
+        this.historyItems = await CoinsAPI.getHistoryByTicker(this.ticker)
+      } catch (e) {
+        console.error(e)
+        this.error = e
+      } finally {
+        this.loading = false
+      }
+    },
+  },
+}
+</script>
+
+<style scoped>
+.CoinPageHistorySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+</style>
