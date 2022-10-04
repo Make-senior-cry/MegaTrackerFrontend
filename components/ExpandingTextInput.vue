@@ -4,6 +4,7 @@
       class="textarea"
       :class="{ textareaFilled: value.length > 0 }"
       v-bind="attrs"
+      :value='value'
       @input="$emit('input', $event.target.value)"
     >
     </textarea>

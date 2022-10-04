@@ -2,9 +2,9 @@ import { setAuthHeader } from '~/api/http'
 import AuthService from '~/services/AuthService'
 
 export default () => {
-  const { accessToken } = AuthService.getTokens()
+  const tokens = AuthService.getTokens()
 
-  if (accessToken) {
-    setAuthHeader(accessToken)
+  if (tokens) {
+    setAuthHeader(tokens.accessToken)
   }
 }

@@ -73,6 +73,7 @@ export default {
       this.error = false
       try {
         this.coin = await CoinsAPI.getCoinByTiker(this.ticker)
+        this.note = this.coin.note ?? ''
       } catch (e) {
         console.error(e)
         this.error = e
