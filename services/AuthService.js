@@ -25,6 +25,7 @@ export default class AuthService {
   }
 
   static removeUser() {
+    this.tokens = null
     localStorage.removeItem(this.localStorageAuthItemName)
     setAuthHeader(null)
   }
