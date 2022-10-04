@@ -69,10 +69,7 @@ export default {
   methods: {
     async login() {
       try {
-        const tokens = await AuthAPI.login(
-          this.email,
-          this.password
-        )
+        const tokens = await AuthAPI.login(this.email, this.password)
         AuthService.setUser(tokens, this.rememberMe)
         this.$router.replace('/')
       } catch (e) {

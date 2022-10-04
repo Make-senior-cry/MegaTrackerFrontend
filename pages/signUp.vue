@@ -92,11 +92,8 @@ export default {
       try {
         this.validatePasswordFields()
         await AuthAPI.register(this.email, this.password, this.repeatedPassword)
-        const tokens = await AuthAPI.login(
-          this.email,
-          this.password
-        )
-        AuthService.setUser(tokens, this.rememberMe);
+        const tokens = await AuthAPI.login(this.email, this.password)
+        AuthService.setUser(tokens, this.rememberMe)
         this.$router.replace('/')
       } catch (e) {
         alert(e.message)
