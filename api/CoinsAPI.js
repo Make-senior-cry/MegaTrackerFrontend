@@ -58,7 +58,7 @@ export default class CoinsAPI {
   }
 
   static async getFavoriteCoins({ page = 1, pageSize = 6 }) {
-    const response = await http.get('/coins-favorite', {
+    const response = await http.get('/coins/favorite', {
       params: { page, pageSize },
     })
     const { coins, pageCount } = response.data
