@@ -52,6 +52,7 @@ export default {
       this.error = false
       try {
         this.historyItems = await CoinsAPI.getHistoryByTicker(this.ticker)
+        this.historyItems = this.historyItems.reverse()
       } catch (e) {
         console.error(e)
         this.error = e
