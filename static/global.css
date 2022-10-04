@@ -1,0 +1,85 @@
+:root {
+  --green-background: #9ef8c2;
+  --red-background: #fe6868;
+  --black-stroke: #000;
+  --white: #fff;
+  --gray: #666666;
+  --light-gray: #d3d3d3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+.material-design-icon {
+  height: 24px;
+  display: block;
+}
+
+button,
+input,
+textarea {
+  outline: none;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.group {
+  display: flex;
+  gap: 1rem;
+}
+
+.group_col {
+  flex-direction: column;
+}
+
+.group_dense {
+  gap: 0.5rem;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 480px) {
+  .group_horizontalOnDesktop {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .desktopMaxWidth50Percents {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
