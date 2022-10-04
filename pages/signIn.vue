@@ -64,15 +64,16 @@ export default {
   data: () => ({
     email: '',
     password: '',
+    rememberMe: false,
   }),
   methods: {
     async login() {
       try {
-        const { accessToken, refreshToken } = await AuthAPI.login(
+        const tokens = await AuthAPI.login(
           this.email,
           this.password
         )
-        AuthService.setUser(accessToken, refreshToken)
+        AuthService.setUser(tokens, this.rememberMe)
         this.$router.replace('/')
       } catch (e) {
         alert(e.message)

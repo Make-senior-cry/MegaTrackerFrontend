@@ -3,18 +3,25 @@ import parseJWT from '~/utils/parseJWT'
 
 export default class AuthService {
   static localStorageAuthItemName = 'auth'
+  static tokens = null
 
   static getTokens() {
-    const payload = localStorage.getItem(this.localStorageAuthItemName)
-    if (!payload) return null
-
-    return JSON.parse(payload)
+    if (this.tokens === null) {
+      const payload = localStorage.getItem(this.localStorageAuthItemName)
+      if (payload) {
+        this.tokens = JSON.parse(payload)
+      }
+    }
+    return this.tokens
   }
 
-  static setUser(accessToken, refreshToken) {
-    const payload = JSON.stringify({ accessToken, refreshToken })
-    setAuthHeader(accessToken)
-    localStorage.setItem(this.localStorageAuthItemName, payload)
+  static setUser(tokens, remeberMe = false) {
+    this.tokens = tokens
+    setAuthHeader(tokens.accessToken)
+    if (remeberMe) {
+      const payload = JSON.stringify(tokens)
+      localStorage.setItem(this.localStorageAuthItemName, payload)
+    }
   }
 
   static removeUser() {
@@ -27,5 +34,13 @@ export default class AuthService {
     if (!data) return null
 
     return parseJWT(data.accessToken).sub
+  }
+
+  static restoreAuth() {
+    const tokens = this.getTokens()
+
+    if (tokens) {
+      setAuthHeader(tokens.accessToken)
+    }
   }
 }
