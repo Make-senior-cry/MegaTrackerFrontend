@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container"
+    class="CoinDeltaPrice"
     :class="{
       container_increased: isIncreased,
       container_null: isNull,
@@ -8,6 +8,7 @@
     }"
   >
     <TextContent :value="`${price}$`" />
+    <TextContent class="coinDeltaPricePercents" :value="`(${deltaPricePercent}%)`" />
   </div>
 </template>
 
@@ -46,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.CoinDeltaPrice {
   color: var(--black-stroke);
   font-size: 0.875rem;
   line-height: 1.2;
@@ -59,6 +60,21 @@ export default {
   white-space: nowrap;
   max-width: 7.5rem;
   text-overflow: ellipsis;
+  gap: 0.25rem;
+}
+
+.coinDeltaPricePercents {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .CoinDeltaPrice {
+    max-width: 100%;
+  }
+
+  .coinDeltaPricePercents {
+    display: block;
+  }
 }
 
 .container_large {
