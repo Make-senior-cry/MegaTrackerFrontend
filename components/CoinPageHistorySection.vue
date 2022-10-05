@@ -4,7 +4,9 @@
     <LoadingSpinner v-else-if="loading" />
     <template v-else>
       <CoinHistoryList
-        :coin-price-items="historyItems.slice(10 * (currentPage - 1), currentPage * 10)"
+        :coin-price-items="
+          historyItems.slice(10 * (currentPage - 1), currentPage * 10)
+        "
       />
       <div class="desktopMaxWidth50Percents">
         <PaginationBlock
