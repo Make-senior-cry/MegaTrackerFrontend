@@ -13,7 +13,7 @@
       <TextInput
         :value="search"
         :attrs="{
-          placeholder: 'Начните вводить тикер...',
+          placeholder: 'Поиск...',
           type: 'text',
         }"
         @input="handleSearch"
