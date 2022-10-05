@@ -1,5 +1,9 @@
 <template>
-  <div class="container" :style="{ '--item-width': itemWidth }" :class="{PaginationBlockSmall: this.count < 6}">
+  <div
+    class="container"
+    :style="{ '--item-width': itemWidth }"
+    :class="{ PaginationBlockSmall: count < 6 }"
+  >
     <button
       v-for="(pageNumber, index) in pageLinks"
       :key="index"
