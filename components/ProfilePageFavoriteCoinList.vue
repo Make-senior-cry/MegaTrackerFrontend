@@ -52,7 +52,7 @@ export default {
       this.error = null
       this.loading = true
       try {
-        const { coins, pageCount } = await CoinsAPI.getCoins({
+        const { coins, pageCount } = await CoinsAPI.getFavoriteCoins({
           page: this.currentPage,
         })
         this.coins = coins
