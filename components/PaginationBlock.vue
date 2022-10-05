@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="{ '--item-width': itemWidth }">
+  <div class="container" :style="{ '--item-width': itemWidth }" :class="{PaginationBlockSmall: this.count < 6}">
     <button
       v-for="(pageNumber, index) in pageLinks"
       :key="index"
@@ -90,5 +90,11 @@ export default {
 
 .pageButtonArrow {
   color: var(--gray);
+}
+
+.PaginationBlockSmall {
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: min-content;
 }
 </style>
