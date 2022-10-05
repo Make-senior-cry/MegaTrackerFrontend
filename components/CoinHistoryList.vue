@@ -5,17 +5,20 @@
       :key="coinPriceItem.date"
       :coin-price-item="coinPriceItem"
     />
+    <EmptyFallback v-if="coinPriceItems.length === 0" />
   </ul>
 </template>
 
 <script>
+import EmptyFallback from './EmptyFallback.vue'
 import CoinHistoryListItem from '~/components/CoinHistoryListItem'
+
 export default {
-  components: { CoinHistoryListItem },
+  components: { CoinHistoryListItem, EmptyFallback },
   props: {
     coinPriceItems: {
       type: Array,
-      required: true,
+      default: () => []
     },
   },
 }

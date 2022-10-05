@@ -11,20 +11,22 @@
       @clickFavourite="$emit('clickFavorite', coin.ticker)"
       @click="$router.push(`/${coin.ticker}`)"
     />
+    <EmptyFallback v-if="coins.length === 0" />
   </ul>
 </template>
 
 <script>
 import LoadingSpinner from './LoadingSpinner.vue'
+import EmptyFallback from './EmptyFallback.vue'
 import CoinListItem from '~/components/CoinListItem'
 
 export default {
   name: 'CoinList',
-  components: { CoinListItem, LoadingSpinner },
+  components: { CoinListItem, LoadingSpinner, EmptyFallback },
   props: {
     coins: {
       type: Array,
-      required: true,
+      default: () => [],
     },
     showFavourite: {
       type: Boolean,

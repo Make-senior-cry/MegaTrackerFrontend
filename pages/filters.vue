@@ -36,10 +36,9 @@
           @input="handleChangeIsRising"
         />
       </fieldset>
-      <NuxtLink class='no-shrink' to='/'>
+      <NuxtLink class="no-shrink" to="/">
         <PrimaryButton type="submit"> Применить </PrimaryButton>
       </NuxtLink>
-
     </form>
   </DefaultLayout>
 </template>
