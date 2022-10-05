@@ -8,7 +8,10 @@
     }"
   >
     <TextContent :value="`${price}$`" />
-    <TextContent class="coinDeltaPricePercents" :value="`(${deltaPricePercent}%)`" />
+    <TextContent
+      class="coinDeltaPricePercents"
+      :value="`(${deltaPricePercent}%)`"
+    />
   </div>
 </template>
 
