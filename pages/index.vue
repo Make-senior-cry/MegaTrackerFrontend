@@ -94,13 +94,13 @@ export default {
       this.currentPage = newPage
       this.fetchCoins()
     },
-    async fetchCoins(search) {
+    async fetchCoins() {
       this.error = null
       this.loading = true
       try {
         const { coins, pageCount } = await CoinsAPI.getCoins({
           page: this.currentPage,
-          search,
+          search: this.search,
         })
         this.coins = coins
         this.pageCount = pageCount
