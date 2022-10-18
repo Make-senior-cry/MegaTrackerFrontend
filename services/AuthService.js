@@ -1,5 +1,5 @@
 import AuthAPI from '~/api/AuthAPI'
-import http, { setAuthHeader } from '~/api/http'
+import { setAuthHeader } from '~/api/http'
 import parseJWT from '~/utils/parseJWT'
 
 export default class AuthService {
@@ -7,17 +7,8 @@ export default class AuthService {
   static tokens = null
   static authAutoRefetchAttempts = 0
 
-  static setAutoRefetchOn401() {
-    http.interceptors.response.use(
-      (response) => response,
-      (error) => {
-        if (error.response.status === 401) this.updateTokens()
-        return error
-      }
-    )
-  }
-
   static async updateTokens() {
+    console.log('AuthService: updateTockens')
     if (this.authAutoRefetchAttempts > 3) return
     this.authAutoRefetchAttempts += 1
 

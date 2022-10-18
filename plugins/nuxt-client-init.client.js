@@ -1,6 +1,16 @@
+import http from '~/api/http'
 import AuthService from '~/services/AuthService'
 
 export default () => {
   AuthService.restoreAuth()
-  AuthService.setAutoRefetchOn401()
+
+  http.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      const message = error.response.data
+      if (message) error.message = message
+      if (error.status === 401) AuthService.updateTokens()
+      return Promise.reject(error)
+    }
+  )
 }
