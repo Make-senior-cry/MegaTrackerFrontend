@@ -5,7 +5,10 @@
     </div>
     <div class="priceInfo">
       <TextContent :value="String(coinPriceItem.closingPrice)" variant="H3" />
-      <CoinDeltaPrice :delta-price="coinPriceItem.deltaClosingPrice" :delta-price-percent='coinPriceItem.deltaClosingPricePercent'/>
+      <CoinDeltaPrice
+        :delta-price="coinPriceItem.deltaClosingPrice"
+        :delta-price-percent="coinPriceItem.deltaClosingPricePercent"
+      />
     </div>
   </div>
 </template>
