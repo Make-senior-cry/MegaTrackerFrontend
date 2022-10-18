@@ -100,7 +100,7 @@ export default {
         )
         this.handleGoBack()
       } catch (e) {
-        alert(e.message)
+        this.$toast.error(e?.message ?? "Auth failed");
       }
     },
   },

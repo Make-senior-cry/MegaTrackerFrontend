@@ -23,7 +23,7 @@ export default class AuthService {
       this.setUser(newTokens, rememberMeIsSet)
       this.authAutoRefetchAttempts = 0
     } catch (e) {
-      alert(e)
+      this.$toast.error(e?.message ?? 'Auto auth failed')
       this.removeUser()
     }
   }

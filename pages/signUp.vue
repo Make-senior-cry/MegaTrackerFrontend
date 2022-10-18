@@ -99,7 +99,7 @@ export default {
         AuthService.setUser(tokens, this.rememberMe)
         this.$router.replace('/')
       } catch (e) {
-        alert(e.message)
+        this.$toast.error(e?.message ?? "Auth failed");
       }
     },
   },

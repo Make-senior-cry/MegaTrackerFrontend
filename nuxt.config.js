@@ -36,7 +36,12 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/toast'],
+
+  toast: {
+    position: 'bottom-center',
+    duration: 3000,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
