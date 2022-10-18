@@ -77,7 +77,7 @@ export default {
         this.$router.replace('/')
       } catch (e) {
         console.log(e.message)
-        this.$toast.error(e?.message ?? "Auth failed");
+        this.$toast.error(e?.message ?? 'Auth failed')
       }
     },
   },
