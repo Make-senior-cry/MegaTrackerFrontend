@@ -9,7 +9,7 @@ export default () => {
     (error) => {
       const message = error.response.data
       if (message) error.message = message
-      if (error.status === 401) AuthService.updateTokens()
+      if (error.response.status === 401) AuthService.updateTokens()
       return Promise.reject(error)
     }
   )

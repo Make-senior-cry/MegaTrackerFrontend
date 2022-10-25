@@ -8,7 +8,6 @@ export default class AuthService {
   static authAutoRefetchAttempts = 0
 
   static async updateTokens() {
-    console.log('AuthService: updateTockens')
     if (this.authAutoRefetchAttempts > 3) return
     this.authAutoRefetchAttempts += 1
 
@@ -22,8 +21,7 @@ export default class AuthService {
       )
       this.setUser(newTokens, rememberMeIsSet)
       this.authAutoRefetchAttempts = 0
-    } catch (e) {
-      this.$toast.error(e?.message ?? 'Auto auth failed')
+    } catch {
       this.removeUser()
     }
   }
@@ -57,8 +55,15 @@ export default class AuthService {
     const data = this.getTokens()
     if (!data) return null
 
-    return parseJWT(data.accessToken).sub
+    try {
+      return parseJWT(data.accessToken).sub
+    } catch (e) {
+      console.error(e)
+      return null
+    }
   }
+
+  static parseJWTSafe() {}
 
   static restoreAuth() {
     const tokens = this.getTokens()
